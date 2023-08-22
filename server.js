@@ -27,6 +27,15 @@ io.on('connection', socket => {
   socket.on('nudge-client', data => {
     socket.broadcast.to(data.to).emit('client-nudged', data)
   })
+
+  socket.on('log-response', data => {
+    console.log("Name: " + data.name);
+    console.log("Email: " + data.email);
+    console.log("Age: " + data.age);
+    console.log("Phone Number: " + data.phone_num);
+    console.log("Date of Birth: " + data.dob);
+    console.log("Address: " + data.address);
+  })
 })
 
 http.listen(3000, () => {
